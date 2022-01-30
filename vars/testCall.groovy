@@ -1,3 +1,3 @@
-def call(image, sudo = true) {
-    sendTelegram(' error build.')
+def call(message, sudo = true) {
+    sendTelegram(message)
 }
