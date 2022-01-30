@@ -1,4 +1,5 @@
 def call(image, sudo = true) {
+    sendTelegram(env.JOB_BASE_NAME + ' error build.')
     tagBeta = "${currentBuild.displayName}-${env.BRANCH_NAME}"
     prefix = ""
     if (sudo) {
