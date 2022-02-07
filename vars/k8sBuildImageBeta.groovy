@@ -3,16 +3,16 @@ def call(image, sudo = true, prefix = "") {
     if (sudo) {
         prefix = "sudo "
     }
-    sh """${prefix}docker image build \
+    sh """${prefix} docker image build \
         -t ${image}:${tagBeta} ."""
     withCredentials([usernamePassword(
         credentialsId: "docker",
         usernameVariable: "USER",
         passwordVariable: "PASS"
     )]) {
-        sh """${prefix}docker login \
+        sh """${prefix} docker login \
             -u $USER -p $PASS"""
     }
-    sh """${prefix}docker image push \
+    sh """${prefix} docker image push \
         ${image}:${tagBeta}"""
 }
